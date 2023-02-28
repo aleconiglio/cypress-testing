@@ -2,7 +2,7 @@ import { AppointmentHelper } from "../pages/appointment/appointment.helpers";
 import { CommonHelper } from "../pages/common/common.helper";
 describe('Cura HealthCare TEST', () => {
     
-    beforeEach('Get into site', () => {
+    beforeEach('get into site', () => {
         CommonHelper.navigateToApp();
         cy.contains('h1', 'CURA Healthcare Service').should('be.visible');
 
