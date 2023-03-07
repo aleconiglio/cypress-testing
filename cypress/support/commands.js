@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("SelectInDropDown", (selector, choice) => {
+    cy.get(selector).should('be.visible').select(choice, {force: true});
+})
+Cypress.Commands.add("ClickButton", (selector) => {
+    cy.get(selector).click();
+})
+Cypress.Commands.add("TypeSomething", (selector,content) =>{
+    cy.get(selector).type(content);
+
+})
