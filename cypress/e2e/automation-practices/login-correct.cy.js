@@ -1,9 +1,9 @@
-describe("register-user", () => {
+describe("Login-correct", () => {
     let name = 'alejo';
     let surname = 'surname'; 
-    let email =  'alejo@gmail.com';
+    let email = 'alejo@gmail.com';
     let password = 'password';
-    it("home page view", () =>{
+    beforeEach(() =>{
         cy.step("visit web page");
         cy.visit('http://automationexercise.com');
         cy.get('img[src="/static/images/home/logo.png"]').should('be.visible');
@@ -33,8 +33,17 @@ describe("register-user", () => {
         cy.TypeSomething('input[data-qa="mobile_number"]', '123321');
         cy.ClickButton('button[data-qa="create-account"]');
         cy.contains('b', 'Account Created!');
-        cy.ClickButton('a[data-qa="continue-button"]');
-        cy.contains(`Logged in as ${username}`);
+    })
+    it("Login user with correct email and password", () => {
+        cy.step("visit the web page");
+        cy.visit('http://automationexercise.com');
+        cy.get('img[src="/static/images/home/logo.png"]').should('be.visible');
+        cy.ClickButton('a[href="/logout"]');
+        cy.step("login");
+        cy.TypeSomething('input[data-qa="login-email"]', email);
+        cy.TypeSomething('input[data-qa="login-password"]', password);
+        cy.ClickButton('button[data-qa="login-button"]');
+        cy.contains(`Logged in as ${name}`);
         cy.step("delete account");
         cy.ClickButton('a[href="/delete_account"]');
         cy.contains('b', 'Account Deleted!');
