@@ -1,6 +1,6 @@
 describe("login with correct email and password", () => {
     let name = 'alejo';
-    let email = 'alejo@gmail.com';
+    let email = 'asdasdasdasdasdasd@gmail.com';
     let password = 'password';
     beforeEach(() =>{
         cy.CreateUser(email, name, password);
