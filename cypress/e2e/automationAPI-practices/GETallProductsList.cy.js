@@ -5,6 +5,7 @@ describe('get all products list', () => {
             url: "https://automationexercise.com/api/productsList"
         }).then((response) => {
             expect(response.status).to.eq(200);
+            expect(response.body).to.have.length.greaterThan(0)
             cy.step("products: ")
             cy.log(JSON.stringify(response));
         });
